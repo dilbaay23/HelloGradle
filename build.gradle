@@ -1,0 +1,43 @@
+
+plugins {
+    id 'java'
+}
+
+group 'org.moon'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
+//task hello {
+//    doLast {
+//        println 'Baeldung'
+//    }
+//}
+task toLower {
+    doLast {
+        String someString = 'HELLO FROM BAELDUNG'
+        println "Original: "+ someString
+        println "Lower case: " + someString.toLowerCase()
+    }
+}
+task helloGradle {
+    doLast {
+        println 'Hello Gradle!'
+    }
+}
+
+task fromBaeldung(dependsOn: helloGradle) {
+    doLast {
+        println "I'm from Baeldung"
+    }
+}
