@@ -38,6 +38,6 @@ task helloGradle {
 
 task fromBaeldung(dependsOn: helloGradle) {
     doLast {
-        println "I'm from Baeldung"
+        println "I'm from Mars"
     }
 }
