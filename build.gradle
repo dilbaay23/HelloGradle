@@ -29,6 +29,34 @@ test {
 //    }
 //}
 apply from: 'aplugin.gradle'
+apply plugin: 'war'
+dependencies {
+    compile group:'org.springframework', name: 'spring-core', version: '4.3.5.RELEASE'
+    compile 'org.springframework:spring-core:4.3.5.RELEASE',
+            'org.springframework:spring-aop:4.3.5.RELEASE'
+    compile(
+            [group: 'org.springframework', name: 'spring-core', version: '4.3.5.RELEASE'],
+            [group: 'org.springframework', name: 'spring-aop', version: '4.3.5.RELEASE']
+    )
+    testCompile('org.hibernate:hibernate-core:5.2.12.Final') {
+        transitive = true
+    }
+    runtime(group: 'org.hibernate', name: 'hibernate-core', version: '5.2.12.Final') {
+        transitive = false
+    }
+}
+
+/*buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.shipkit:shipkit:0.9.117"
+    }
+}
+apply plugin: "org.shipkit.bintray-release"*/
 
 task toLower {
     doLast {
