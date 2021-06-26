@@ -1,2 +1,3 @@
 rootProject.name = 'HelloGradle'
+println 'At initialization phase.'
 
